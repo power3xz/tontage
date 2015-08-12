@@ -17,27 +17,37 @@ gulp.task('vet', function() {
         .pipe($.jshint.reporter('fail'));
 });
 
-gulp.task('clean-styles', function() {
-    log('cleaning style files');
-
+gulp.task('clean-styles', function(done) {
     var stylefiles = config.temp + '**/*.css';
-
-    return gulp
-        .src(stylefiles)
-        .pipe(del());
+    clean(stylefiles, done);
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', ['clean-styles'], function() {
     log('Autoprefixing css files');
 
     return gulp
         .src(config.allcss)
         .pipe($.print())
         .pipe($.autoprefixer())
+        .on('error', errorLogger)
         .pipe(gulp.dest(config.temp));
 });
 
+gulp.task('css-watcher', function() {
+    gulp.watch([config.allcss], ['styles']);
+});
+
 //////////////
+
+function errorLogger(error) {
+    log($.util.colors.red(error.message));
+    this.emit('end');
+}
+
+function clean(path, done) {
+    log('Cleaning: ' + $.util.colors.blue(path));
+    del(path, done);
+}
 
 function log(msg) {
     if (typeof(msg) === 'object') {
