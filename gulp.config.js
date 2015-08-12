@@ -14,7 +14,7 @@ module.exports = function() {
         allcss: './src/client/**/*.css',
 
         // temp file path
-        temp: './tmp/'
+        temp: './.tmp'
     };
 
     return config;
