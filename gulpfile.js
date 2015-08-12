@@ -32,6 +32,7 @@ gulp.task('styles', function() {
 
     return gulp
         .src(config.allcss)
+        .pipe($.print())
         .pipe($.autoprefixer())
         .pipe(gulp.dest(config.temp));
 });
