@@ -1,0 +1,20 @@
+{
+  "name": "tontage",
+  "version": "0.0.0",
+  "homepage": "https://github.com/power3xz/tontage",
+  "authors": [
+    "Jeong <power3xz@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "jquery": "~2.1.4"
+  }
+}
