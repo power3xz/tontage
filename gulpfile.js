@@ -38,6 +38,8 @@ gulp.task('css-watcher', function() {
 });
 
 gulp.task('wiredep', function() {
+    log('Wire up the bower css js and our app js into the html');
+
     var options = config.getWiredepDefaultOptions();
     var wiredep = require('wiredep').stream;
 
@@ -45,6 +47,17 @@ gulp.task('wiredep', function() {
         .src(config.index)
         .pipe(wiredep(options))
         .pipe($.inject(gulp.src(config.js)))
+        .pipe(gulp.dest(config.client));
+});
+
+gulp.task('inject', ['wiredep', 'styles'], function() {
+    log('Wire up our custom css into the html');
+
+    var options = config.getWiredepDefaultOptions();
+
+    return gulp
+        .src(config.index)
+        .pipe($.inject(gulp.src(config.style)))
         .pipe(gulp.dest(config.client));
 });
 

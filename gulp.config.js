@@ -3,6 +3,8 @@ module.exports = function() {
     var client = './src/client/';
     var clientApp = client + 'app/';
 
+    var temp = './.tmp/';
+
     var config = {
 
         // file paths
@@ -15,9 +17,10 @@ module.exports = function() {
 
         // all css files
         allcss: client + '**/*.css',
+        style: temp + 'styles/styles.css',
 
         // temp file path
-        temp: './.tmp/',
+        temp: temp,
         client: client,
         js: [
             clientApp + '**/*.js',
