@@ -1,5 +1,8 @@
 module.exports = function() {
 
+    var client = './src/client/';
+    var clientApp = client + 'app/';
+
     var config = {
 
         // file paths
@@ -11,10 +14,33 @@ module.exports = function() {
         ],
 
         // all css files
-        allcss: './src/client/**/*.css',
+        allcss: client + '**/*.css',
 
         // temp file path
-        temp: './.tmp/'
+        temp: './.tmp/',
+        client: client,
+        js: [
+            clientApp + '**/*.js',
+            '!' + clientApp + '**/*.spec.js'
+        ],
+        index: client + 'index.html',
+
+        // bower options
+        bower: {
+            bowerJson: require('./bower.json'),
+            directory: './bower_components/',
+            ignorePath: '../../'
+        }
+    };
+
+    config.getWiredepDefaultOptions = function() {
+        var options = {
+            bowerJson: config.bower.json,
+            directory: config.bower.directory,
+            ignorePath: config.bower.ignorePath
+        };
+
+        return options;
     };
 
     return config;
