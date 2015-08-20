@@ -1,11 +1,21 @@
 <div class="wrapper">
-    <h1>Projects</h1>
+    <h1 class="projects-header">Projects</h1>
 
     <div class="projects">
+        <div class="project" ng-repeat="project in projects">
+            <div class="project-inner">
+                <div class="project-title">
+                    <div class="project-title-text vm">{{project.title}}</div>
+                </div>
+                <div class="project-buttons vm">
+                    <div class="button-basic button-project-edit">Edit</div>
+                    <div class="button-basic button-project-delete">Delete</div>
+                </div>
+            </div>
+        </div>
         <div class="project">
-            <div>My Project</div>
-            <div>
-                <img />
+            <div class="button-basic button-add-project" ng-click="addProject()">
+                <div class="button-add-project-text vm">+</div>
             </div>
         </div>
     </div>
