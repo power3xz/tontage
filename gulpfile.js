@@ -64,7 +64,9 @@ gulp.task('inject', ['wiredep', 'styles'], function() {
 //////////////
 
 function errorLogger(error) {
-    log($.util.colors.red(error.message));
+    var red = $.util.colors.red;
+
+    log(red(error.message));
     this.emit('end');
 }
 
@@ -74,13 +76,15 @@ function clean(path, done) {
 }
 
 function log(msg) {
+    var blue = $.util.colors.blue;
+
     if (typeof(msg) === 'object') {
         for (var item in msg) {
             if (msg.hasOwnProperty(item)) {
-                $.util.log($.util.colors.blue(msg[item]));
+                $.util.log(blue(msg[item]));
             }
         }
     } else {
-        $.util.log($.util.colors.blue(msg));
+        $.util.log(blue(msg));
     }
 }

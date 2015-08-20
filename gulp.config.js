@@ -32,7 +32,7 @@ module.exports = function() {
         bower: {
             bowerJson: require('./bower.json'),
             directory: './bower_components/',
-            ignorePath: '../../'
+            ignorePath: '../..'
         }
     };
 
