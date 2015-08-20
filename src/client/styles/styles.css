@@ -7,3 +7,67 @@ html, body {
     box-sizing: border-content;
     user-select: none;
 }
+
+.view {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.vm {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tontage-title {
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.input-basic {
+    border: 1px solid #9a9a9a;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding-left: 6px;
+}
+
+.input.id, .input.password {
+    margin: 12px 0;
+    height: 40px;
+}
+
+.input-field {
+    margin: 0 auto;
+    width: 320px;
+}
+
+.button-basic {
+    background-color: #2497c8;
+    border: 1px solid #9a9a9a;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.button-basic:hover {
+    background-color: #2497ff;
+}
+
+.button-login {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
