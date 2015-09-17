@@ -16,8 +16,8 @@ module.exports = function() {
         ],
 
         // all css files
-        allcss: client + '**/*.css',
-        style: temp + 'styles/styles.css',
+        allcss: [client + 'styles/styles.css', client + '**/*.css'],
+        style: temp + 'styles.css',
 
         // temp file path
         temp: temp,

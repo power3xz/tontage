@@ -29,6 +29,8 @@ gulp.task('styles', ['clean-styles'], function() {
         .src(config.allcss)
         .pipe($.print())
         .pipe($.autoprefixer())
+        .pipe($.concat('styles.css'))
+        .pipe($.minifyCss())
         .on('error', errorLogger)
         .pipe(gulp.dest(config.temp));
 });
