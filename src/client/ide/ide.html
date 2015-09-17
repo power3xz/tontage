@@ -1,0 +1,62 @@
+<div class="ide-wrapper">
+    <div class="menu-bar">
+        <div class="menu">Menu 1</div>
+        <div class="menu">Menu 2</div>
+        <div class="menu">Menu 3</div>
+        <div class="menu">Menu 4</div>
+    </div>
+    <div class="middle-content">
+        <div class="side-navigator">
+            <div class="directory">
+                <div class="folder" ng-repeat="file in root" ng-click="clickFile(file)">
+                    <div class="folder-name">{{file.name}}</div>
+                    <!--<div class="file">-->
+                    <!--<div class="file-name">file 1</div>-->
+                    <!--</div>-->
+                </div>
+                <!--<div class="folder">-->
+                <!--<div class="folder-name">folder 2</div>-->
+                <!--</div>-->
+                <!--<div class="folder">-->
+                <!--<div class="folder-name">folder 3</div>-->
+                <!--</div>-->
+            </div>
+            <div class="movable-bar-x" ng-swipe-right="moveBar()"></div>
+        </div>
+        <div class="editor">
+            <div class="editor-tab">
+                <div class="tab"
+                     ng-class="{'opened': file.fileIndex === openedFile.fileIndex}"
+                     ng-repeat="file in tabs"
+                     ng-click="clickFile(file)">
+                    <label class="tab-title">{{file.name}}</label>
+                    <div class="tab-x" ng-click="closeFile(file)"></div>
+                </div>
+                <!--<div class="tab openedFile">-->
+                <!--<label class="tab-title">file 1</label>-->
+                <!--<div class="tab-x"></div>-->
+                <!--</div>-->
+                <!--<div class="tab">-->
+                <!--<label class="tab-title">file 2</label>-->
+                <!--<div class="tab-x"></div>-->
+                <!--</div>-->
+                <!--<div class="tab">-->
+                <!--<label class="tab-title">file 3</label>-->
+                <!--<div class="tab-x"></div>-->
+                <!--</div>-->
+            </div>
+            <div class="edit-area">
+                <div class="line" ng-repeat="line in openedFile.lines track by $index">
+                    <div class="line-number">{{($index + 1)}}</div>
+                    <div class="line-text">
+                        <input class="line-input" type="text" ng-model="openedFile.lines[$index]" spellcheck="false" />
+                    </div>
+                </div>
+                <!--<div class="line">-->
+                    <!--<div class="line-number">2</div>-->
+                    <!--<div class="line-text"></div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>

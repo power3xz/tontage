@@ -23,6 +23,7 @@ module.exports = function() {
         temp: temp,
         client: client,
         js: [
+            clientApp + 'app.js',
             clientApp + '**/*.js',
             '!' + clientApp + '**/*.spec.js'
         ],
